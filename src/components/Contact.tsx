@@ -68,7 +68,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Your actual EmailJS credentials are now implemented
+      // Your actual EmailJS credentials implemented
       const serviceId = 'service_f8yxfal';
       const templateId = 'template_6eu2pup';
       const publicKey = '6wZOs6bdpz7TkvBc';
@@ -123,7 +123,6 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            {/* Contact Cards */}
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <Card 
@@ -150,7 +149,6 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
             <Card className="glass border-card-border hover-glow transition-all duration-300">
               <CardHeader>
                 <CardTitle className="gradient-text-secondary">Follow Me</CardTitle>
@@ -174,22 +172,6 @@ const Contact = () => {
                       </div>
                     </a>
                   ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Quick Stats */}
-            <Card className="glass border-card-border hover-glow transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold gradient-text mb-1">24h</div>
-                    <p className="text-sm text-muted-foreground">Response Time</p>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold gradient-text mb-1">100%</div>
-                    <p className="text-sm text-muted-foreground">Client Satisfaction</p>
-                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -276,13 +258,9 @@ const Contact = () => {
           </Card>
         </div>
 
-        {/* Footer */}
         <div className="mt-16 text-center glass p-8 rounded-2xl">
           <p className="text-muted-foreground mb-4">
             © 2024 Chirag V. Built with passion using React, TypeScript, and Tailwind CSS.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            "Code is poetry written in logic." - Let's create something beautiful together.
           </p>
         </div>
       </div>
