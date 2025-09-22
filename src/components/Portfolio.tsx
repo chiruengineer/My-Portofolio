@@ -3,12 +3,21 @@ import { ExternalLink, Github, Eye, Filter, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+
+// <<< FIX 1: Import all necessary project images
+import realTimeDashboard from '@/assets/Real-time.png';
+import hospitalDashboard from '@/assets/Hospital-management.png';
+import netflixDashboard from '@/assets/Netflix-Dashboard.png';
+import farmDashboard from '@/assets/Farm-management.png';
+import olympicsDashboard from '@/assets/Olympics-Dashboard.png';
 import instagramDashboard from '@/assets/instagram-dashboard.png';
 import supermartDashboard from '@/assets/supermart-dashboard.png';
+
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
+  // <<< FIX 2: Update projects to use imported images and reflect no-dashboard status
   const projects = [
     {
       id: 1,
@@ -16,11 +25,10 @@ const Portfolio = () => {
       description: "Advanced attendance tracking system using computer vision and machine learning",
       category: "web-development",
       technologies: ["Python", "OpenCV", "Machine Learning", "SQLite"],
-      image: "/api/placeholder/400/250",
       github: "https://github.com/chiruengineer/Realtime-FaceRecog-with-attendance-system-including-CCTV-usage",
       demo: null,
-      isDashboard: true,
-      dashboardImage: "/src/assets/Real-time.png",
+      isDashboard: false, // Set to false to hide the second button
+      dashboardImage: realTimeDashboard,
       featured: true
     },
     {
@@ -29,11 +37,10 @@ const Portfolio = () => {
       description: "Comprehensive healthcare management platform with AI-powered assistant",
       category: "web-development",
       technologies: ["Django", "AngularJS", "SQL", "NLP"],
-      image: "/api/placeholder/400/250",
       github: "https://github.com/chiruengineer/Hospital-Management/tree/main",
       demo: null,
-      isDashboard: true,
-      dashboardImage: "/src/assets/Hospital-management.png",
+      isDashboard: false, // Set to false to hide the second button
+      dashboardImage: hospitalDashboard,
       featured: true
     },
     {
@@ -42,11 +49,10 @@ const Portfolio = () => {
       description: "Comprehensive analysis of Netflix content data with interactive visualizations",
       category: "data-analysis",
       technologies: ["Python", "Pandas", "Tableau", "Data Visualization"],
-      image: "/api/placeholder/400/250",
       github: "https://github.com/chiruengineer",
       demo: "https://netflix-dashboard-ten.vercel.app/",
       isDashboard: true,
-      dashboardImage: "/src/assets/Netflix-Dashboard.png",
+      dashboardImage: netflixDashboard,
       featured: false
     },
     {
@@ -55,11 +61,10 @@ const Portfolio = () => {
       description: "Digital solution for modern agriculture with automation features",
       category: "web-development",
       technologies: ["SQL", "Selenium", "Python", "Web Automation"],
-      image: "/api/placeholder/400/250",
       github: "https://github.com/chiruengineer/Farm-Management-System",
       demo: null,
-      isDashboard: true,
-      dashboardImage: "/src/assets/Farm-management.png",
+      isDashboard: false, // Set to false to hide the second button
+      dashboardImage: farmDashboard,
       featured: false
     },
     {
@@ -68,11 +73,10 @@ const Portfolio = () => {
       description: "Interactive dashboard analyzing Olympic games data across multiple years",
       category: "data-analysis",
       technologies: ["Python", "Matplotlib", "Seaborn", "Dashboard"],
-      image: "/api/placeholder/400/250",
       github: "https://github.com/chiruengineer",
       demo: "https://olympics-analysis-dashboard-hvjrpbwpp.vercel.app/",
       isDashboard: true,
-      dashboardImage: "/src/assets/Olympics-Dashboard.png",
+      dashboardImage: olympicsDashboard,
       featured: false
     },
     {
@@ -81,11 +85,10 @@ const Portfolio = () => {
       description: "Data-driven insights into influencer marketing trends and metrics",
       category: "data-analysis",
       technologies: ["Python", "Power BI", "Data Mining", "Analytics"],
-      image: "/api/placeholder/400/250",
       github: "https://github.com/chiruengineer",
       demo: "https://ibb.co/TBRwqWmz",
       isDashboard: true,
-      dashboardImage: "/src/assets/instagram-dashboard.png",
+      dashboardImage: instagramDashboard,
       featured: false
     },
     {
@@ -94,11 +97,10 @@ const Portfolio = () => {
       description: "Retail analytics dashboard for grocery store performance optimization",
       category: "data-analysis",
       technologies: ["Power BI", "Excel", "SQL", "Business Intelligence"],
-      image: "/api/placeholder/400/250",
       github: "https://github.com/chiruengineer",
       demo: "https://ibb.co/v6wrSWZL",
       isDashboard: true,
-      dashboardImage: "/src/assets/supermart-dashboard.png",
+      dashboardImage: supermartDashboard,
       featured: false
     }
   ];
@@ -126,7 +128,6 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {filters.map((filter) => (
             <Button
@@ -145,7 +146,6 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <Card 
@@ -154,11 +154,11 @@ const Portfolio = () => {
                 project.featured ? 'lg:col-span-2' : ''
               }`}
             >
-              {/* Project Image Placeholder */}
               <div className="relative h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden">
-                {project.isDashboard && project.dashboardImage ? (
+                {project.dashboardImage ? (
                   <img 
-                    src={project.id === 6 ? instagramDashboard : supermartDashboard} 
+                    // <<< FIX 3: Use the correct dynamic image source from the project object
+                    src={project.dashboardImage} 
                     alt={`${project.title} Dashboard`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -187,7 +187,6 @@ const Portfolio = () => {
               </CardHeader>
 
               <CardContent>
-                {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, index) => (
                     <Badge key={index} variant="secondary" className="text-xs">
@@ -196,7 +195,6 @@ const Portfolio = () => {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
                 <div className="flex gap-3">
                   <Button 
                     size="sm" 
@@ -209,13 +207,14 @@ const Portfolio = () => {
                       Code
                     </a>
                   </Button>
+                  {/* This button will now only show if a project has a 'demo' link OR is explicitly a dashboard */}
                   {(project.demo || project.isDashboard) && (
                     <Button 
                       size="sm"
                       className="flex-1 bg-gradient-primary hover:shadow-glow transition-all duration-300"
                       asChild
                     >
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                      <a href={project.demo!} target="_blank" rel="noopener noreferrer">
                         {project.isDashboard ? (
                           <>
                             <BarChart3 className="h-4 w-4 mr-2" />
@@ -236,7 +235,6 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
         <div className="text-center mt-16">
           <div className="glass p-8 rounded-2xl max-w-2xl mx-auto hover-glow transition-all duration-300">
             <h3 className="text-2xl font-semibold mb-4 gradient-text">
