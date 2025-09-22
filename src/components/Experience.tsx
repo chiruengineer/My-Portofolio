@@ -6,27 +6,10 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: "Web Developer Intern",
-      company: "Rooman Technologies",
-      location: "Remote",
-      period: "Jul 2024 - Present",
-      type: "Current Position",
-      description: [
-        "Developing full-stack projects including To-Do App, Blog System, and E-commerce platform",
-        "Working with modern frameworks like Django, Flask, and MERN stack",
-        "Implementing cloud integration and deployment strategies",
-        "Collaborating with senior developers on scalable web solutions"
-      ],
-      technologies: ["Django", "Flask", "MERN Stack", "Cloud Integration", "Full-Stack Development"],
-      gradient: "bg-gradient-primary",
-      current: true
-    },
-    {
-      id: 2,
       title: "Data Analyst Intern",
       company: "Unified Mentor",
       location: "Remote",
-      period: "Sep 2024 - Oct 2024",
+      period: "July 2025 - Oct 2025",
       type: "Internship",
       description: [
         "Performed comprehensive data cleaning and preprocessing on large datasets",
@@ -38,6 +21,24 @@ const Experience = () => {
       gradient: "bg-gradient-secondary",
       current: false
     },
+    {
+      id: 2,
+      title: "Web Developer Intern",
+      company: "Rooman Technologies",
+      location: "Remote",
+      period: "Sep 2024 - Feb 2025",
+      type: "Current Position",
+      description: [
+        "Developing full-stack projects including To-Do App, Blog System, and E-commerce platform",
+        "Working with modern frameworks like Django, Flask, and MERN stack",
+        "Implementing cloud integration and deployment strategies",
+        "Collaborating with senior developers on scalable web solutions"
+      ],
+      technologies: ["Django", "Flask", "MERN Stack", "Cloud Integration", "Full-Stack Development"],
+      gradient: "bg-gradient-primary",
+      current: true
+    },
+    
     {
       id: 3,
       title: "NLP Intern",
