@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -68,14 +68,10 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // EmailJS Configuration - Replace with your actual EmailJS details
-      // 1. Sign up at https://www.emailjs.com/
-      // 2. Create an email service and template
-      // 3. Replace the values below with your actual EmailJS credentials
-      
-      const serviceId = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
-      const templateId = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
-      const publicKey = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
+      // Your actual EmailJS credentials are now implemented
+      const serviceId = 'service_f8yxfal';
+      const templateId = 'template_6eu2pup';
+      const publicKey = '6wZOs6bdpz7TkvBc';
       
       const templateParams = {
         from_name: formData.name,
